@@ -10,7 +10,7 @@ WIDTH = 900
 HEIGHT = 220
 LAYERS = [4, 6, 6, 3]  # input, hidden, hidden, output
 NODE_R = 10
-COLORS = ["#0EA5E9", "#22D3EE", "#2DD4BF", "#34D399", "#10B981"]  
+COLORS = ["#0EA5E9", "#22D3EE", "#2DD4BF", "#34D399", "#10B981"]  # mavi -> yeşil tonları
 
 random.seed(7)  # her çalışmada aynı düzen, sadece animasyon zamanlaması değişsin
 
