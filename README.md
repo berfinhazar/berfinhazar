@@ -1,4 +1,3 @@
-![neural network banner](https://raw.githubusercontent.com/berfinhazar/berfinhazar/refs/heads/main/assets/neural-network.svg)
 
 # Merhaba, ben Berfin 👋
 
@@ -6,6 +5,9 @@ Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Ya
 
 - 🌱 Derin öğrenme ve diffusion modelleri üzerine çalışıyor, model eğitimi ve deployment süreçlerini öğreniyorum.
 - 📫 Bana ulaşmak isterseniz profildeki iletişim bilgilerinden yazabilirsiniz.
+  
+
+![neural network banner](https://raw.githubusercontent.com/berfinhazar/berfinhazar/refs/heads/main/assets/neural-network.svg)
 
 ## 🛠️ Diller & Teknolojiler
 
