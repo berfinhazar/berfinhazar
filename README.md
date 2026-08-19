@@ -33,6 +33,6 @@ Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Ya
 
 ## 🧠 Forward Pass
 
-![neural network banner](https://raw.githubusercontent.com/berfinhaza/berfinhaza/main/assets/neural-network.svg)
+![neural network banner](https://raw.githubusercontent.com/berfinhazar/berfinhazar/refs/heads/main/assets/neural-network.svg)
 
 ---
