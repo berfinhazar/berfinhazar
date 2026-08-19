@@ -1,3 +1,9 @@
+"""
+Animasyonlu bir "neural network forward-pass" SVG banner'ı üretir.
+Katmanlar arasında sinyal akışını simüle eder (stroke-dashoffset animasyonu ile).
+Harici kütüphane gerektirmez, saf SVG + SMIL animasyonu üretir.
+"""
+
 import random
 
 WIDTH = 900
@@ -51,28 +57,30 @@ def build_svg():
     )
     svg_parts.append("</defs>")
 
-    # kenarlar (edges) - katmanlar arasında, animasyonlu "sinyal" ile
+    # kenarlar (edges) - katmanlar arasında, "BERFİN" harfleri akıyor
     edge_id = 0
+    signal_word = "BERFIN"
     for li in range(len(LAYERS) - 1):
         for (x1, y1) in positions[li]:
             for (x2, y2) in positions[li + 1]:
                 edge_id += 1
                 color = random.choice(COLORS)
-                dur = round(random.uniform(1.6, 3.2), 2)
-                delay = round(random.uniform(0, 2.5), 2)
-                length = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+                dur = round(random.uniform(2.2, 4.0), 2)
+                delay = round(random.uniform(0, 3.0), 2)
                 svg_parts.append(
                     f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
                     f'stroke="{color}" stroke-opacity="0.18" stroke-width="1.2"/>'
                 )
-                # hareketli "sinyal" noktası: küçük daire, path boyunca animasyon
+                # hareketli "sinyal": BERFIN kelimesinin bir harfi, path boyunca akıyor
+                letter = signal_word[edge_id % len(signal_word)]
                 svg_parts.append(
-                    f'<circle r="2.4" fill="{color}">'
+                    f'<text font-family="monospace" font-size="11" font-weight="bold" '
+                    f'fill="{color}" text-anchor="middle">{letter}'
                     f'<animateMotion dur="{dur}s" begin="{delay}s" repeatCount="indefinite" '
                     f'path="M{x1:.1f},{y1:.1f} L{x2:.1f},{y2:.1f}"/>'
                     f'<animate attributeName="opacity" values="0;1;1;0" dur="{dur}s" '
                     f'begin="{delay}s" repeatCount="indefinite"/>'
-                    f"</circle>"
+                    f"</text>"
                 )
 
     # düğümler (nodes) - hafif nabız animasyonu ile
