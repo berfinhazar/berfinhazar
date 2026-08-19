@@ -3,9 +3,10 @@
 
 Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Yapay zeka ve makine öğrenmesine alanlarına ilgi duyuyorum, çalışmalarımı bu doğrultuda gerçekleştiriyorum.
 
-- 🌱 Derin öğrenme ve diffusion modelleri üzerine çalışıyor, model eğitimi ve deployment süreçlerini öğreniyorum.
+- 🤖 Yapay zeka, makine öğrenmesi ve özellikle derin öğrenme üzerine çalışıyorum. Son dönemde diffusion modelleri ve görüntü işleme üzerine yoğunlaşıyorum.
+- 💻 Python başta olmak üzere farklı programlama dilleri ve teknolojilerle projeler geliştiriyor, öğrendiklerimi uygulayarak ilerliyorum.
+- 📚 Akademik çalışmaların yanında stajlar ve farklı projelerle gerçek dünya deneyimi kazanmaya çalışıyorum.
 - 📫 Bana ulaşmak isterseniz profildeki iletişim bilgilerinden yazabilirsiniz.
-  
 
 ![neural network banner](https://raw.githubusercontent.com/berfinhazar/berfinhazar/refs/heads/main/assets/neural-network.svg)
 
