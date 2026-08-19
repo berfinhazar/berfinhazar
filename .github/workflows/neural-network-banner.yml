@@ -1,0 +1,37 @@
+name: Generate Neural Network Banner
+
+on:
+  schedule:
+    - cron: "0 3 * * *"   # her gün sabah 03:00 UTC'de çalışır
+  workflow_dispatch: {}    # Actions sekmesinden manuel de tetikleyebilirsin
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate SVG banner
+        run: |
+          mkdir -p assets
+          python3 generate_ai_banner.py
+          mv neural-network.svg assets/neural-network.svg
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/neural-network.svg
+          git diff --staged --quiet || git commit -m "chore: update neural network banner"
+          git push
