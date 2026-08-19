@@ -1,16 +1,17 @@
 # Merhaba, ben Berfin 👋
 
-Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Yapay zeka / makine öğrenmesi tarafına ilgi duyuyorum ve bu alanlarda kendimi geliştirmek için çalışmalar yapıyorum.
+Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Yapay zeka / makine öğrenmesi tarafına ilgi duyuyorum, en son bir Machine Learning stajında çalıştım.
 
 - 🌱 İlgilendiğim alanlar: derin öğrenme, diffusion modelleri, model eğitimi ve deployment
-- 🛠️ Kod yazarken önem verdiğim şeyler: temiz, tekrar üretilebilir pipeline'lar ve düzgün versiyon/ortam yönetimi
+- 🛠️ Kod yazarken önem verdiğim şeyler: temiz, tekrar üretilebilir (reproducible) pipeline'lar ve düzgün versiyon/ortam yönetimi
 - 💼 En son: Machine Learning Intern
 - 📫 Bana ulaşmak isterseniz: profildeki iletişim bilgilerinden yazabilirsiniz
 
 ## 🛠️ Diller & Teknolojiler
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 
 ## 🤖 ML / DL Kütüphaneleri
 
@@ -28,11 +29,11 @@ Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Ya
 
 ## 📊 GitHub İstatistikleri
 
-![Berfin's GitHub stats](https://github-readme-stats.vercel.app/api?username=berfinhazar&show_icons=true&theme=default)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=berfinhaza&layout=compact)
+![Berfin's GitHub stats](assets/stats.svg)
+![Top Langs](assets/top-langs.svg)
 
 ## 🧠 Forward Pass
 
-![neural network banner](https://raw.githubusercontent.com/berfinhazar/berfinhazar/refs/heads/main/assets/neural-network.svg)
+![neural network banner](https://raw.githubusercontent.com/KULLANICI_ADIN/KULLANICI_ADIN/main/assets/neural-network.svg)
 
 ---
