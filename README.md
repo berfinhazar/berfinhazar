@@ -1,6 +1,6 @@
 # Merhaba, ben Berfin 👋
 
-Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Yapay zeka / makine öğrenmesi tarafına ilgi duyuyorum, en son bir Machine Learning stajında çalıştım.
+Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Yapay zeka / makine öğrenmesi tarafına ilgi duyuyorum ve bu alanlarda kendimi geliştirmek için çalışmalar yapıyorum.
 
 - 🌱 İlgilendiğim alanlar: derin öğrenme, diffusion modelleri, model eğitimi ve deployment
 - 🛠️ Kod yazarken önem verdiğim şeyler: temiz, tekrar üretilebilir pipeline'lar ve düzgün versiyon/ortam yönetimi
