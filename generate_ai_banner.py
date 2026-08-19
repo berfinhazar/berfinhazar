@@ -1,6 +1,8 @@
 """
 Animasyonlu bir "neural network forward-pass" SVG banner'ı üretir.
-Katmanlar arasında sinyal akışını simüle eder (stroke-dashoffset animasyonu ile).
+- Arka planda sürekli küçük "sinyal" noktaları katmanlar arasında akar.
+- Periyodik olarak (her CYCLE saniyede bir) "BERFIN" kelimesinin harfleri
+  sırayla katmanlar boyunca yürür, sonra kaybolup normal akışa döner.
 Harici kütüphane gerektirmez, saf SVG + SMIL animasyonu üretir.
 """
 
@@ -11,6 +13,11 @@ HEIGHT = 220
 LAYERS = [4, 6, 6, 3]  # input, hidden, hidden, output
 NODE_R = 10
 COLORS = ["#7C3AED", "#8B5CF6", "#A78BFA", "#22D3EE", "#38BDF8"]
+
+SIGNAL_WORD = "BERFIN"
+CYCLE = 12.0          # toplam döngü süresi (saniye)
+LETTER_TRAVEL = 3.0    # bir harfin baştan sona yürüme süresi
+LETTER_STAGGER = 0.35  # harfler arası başlama gecikmesi
 
 random.seed(7)  # her çalışmada aynı düzen, sadece animasyon zamanlaması değişsin
 
@@ -42,12 +49,10 @@ def build_svg():
         f'viewBox="0 0 {WIDTH} {HEIGHT}">'
     )
 
-    # arka plan
     svg_parts.append(
         f'<rect width="{WIDTH}" height="{HEIGHT}" rx="14" fill="#0B0B14"/>'
     )
 
-    # gradient tanımları
     svg_parts.append("<defs>")
     svg_parts.append(
         '<radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">'
@@ -57,33 +62,35 @@ def build_svg():
     )
     svg_parts.append("</defs>")
 
-    # kenarlar (edges) - katmanlar arasında, "BERFİN" harfleri akıyor
-    edge_id = 0
-    signal_word = "BERFIN"
+    # ---- kenarlar (edges) - sabit çizgiler ----
     for li in range(len(LAYERS) - 1):
         for (x1, y1) in positions[li]:
             for (x2, y2) in positions[li + 1]:
-                edge_id += 1
                 color = random.choice(COLORS)
-                dur = round(random.uniform(2.2, 4.0), 2)
-                delay = round(random.uniform(0, 3.0), 2)
                 svg_parts.append(
                     f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" '
-                    f'stroke="{color}" stroke-opacity="0.18" stroke-width="1.2"/>'
-                )
-                # hareketli "sinyal": BERFIN kelimesinin bir harfi, path boyunca akıyor
-                letter = signal_word[edge_id % len(signal_word)]
-                svg_parts.append(
-                    f'<text font-family="monospace" font-size="11" font-weight="bold" '
-                    f'fill="{color}" text-anchor="middle">{letter}'
-                    f'<animateMotion dur="{dur}s" begin="{delay}s" repeatCount="indefinite" '
-                    f'path="M{x1:.1f},{y1:.1f} L{x2:.1f},{y2:.1f}"/>'
-                    f'<animate attributeName="opacity" values="0;1;1;0" dur="{dur}s" '
-                    f'begin="{delay}s" repeatCount="indefinite"/>'
-                    f"</text>"
+                    f'stroke="{color}" stroke-opacity="0.16" stroke-width="1.2"/>'
                 )
 
-    # düğümler (nodes) - hafif nabız animasyonu ile
+    # ---- arka plan trafiği: sürekli akan küçük noktalar ----
+    for li in range(len(LAYERS) - 1):
+        for (x1, y1) in positions[li]:
+            for (x2, y2) in positions[li + 1]:
+                if random.random() > 0.35:
+                    continue
+                color = random.choice(COLORS)
+                dur = round(random.uniform(2.0, 3.6), 2)
+                delay = round(random.uniform(0, 3.0), 2)
+                svg_parts.append(
+                    f'<circle r="2" fill="{color}" opacity="0.8">'
+                    f'<animateMotion dur="{dur}s" begin="{delay}s" repeatCount="indefinite" '
+                    f'path="M{x1:.1f},{y1:.1f} L{x2:.1f},{y2:.1f}"/>'
+                    f'<animate attributeName="opacity" values="0;0.8;0.8;0" dur="{dur}s" '
+                    f'begin="{delay}s" repeatCount="indefinite"/>'
+                    f"</circle>"
+                )
+
+    # ---- düğümler (nodes) - hafif nabız animasyonu ----
     for li, layer in enumerate(positions):
         for (x, y) in layer:
             pulse_dur = round(random.uniform(2.0, 3.5), 2)
@@ -95,7 +102,37 @@ def build_svg():
                 f"</circle>"
             )
 
-    # başlık yazısı
+    # ---- periyodik "BERFIN" yazısı: harfler sırayla tüm katmanlardan geçiyor ----
+    for i, letter in enumerate(SIGNAL_WORD):
+        row = i % min(LAYERS)
+        pts = []
+        for li in range(len(LAYERS)):
+            x, y = positions[li][row % len(positions[li])]
+            pts.append((x, y))
+        path_d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+
+        start_t = i * LETTER_STAGGER
+        end_t = start_t + LETTER_TRAVEL
+        start_frac = round(start_t / CYCLE, 4)
+        end_frac = round(end_t / CYCLE, 4)
+
+        opacity_key_times = f"0;{start_frac};{min(start_frac+0.01,1)};{end_frac};{min(end_frac+0.01,1)};1"
+        opacity_values = "0;0;1;1;0;0"
+
+        motion_key_times = f"0;{start_frac};{end_frac};1"
+        motion_key_points = "0;0;1;1"
+
+        svg_parts.append(
+            f'<text font-family="monospace" font-size="13" font-weight="bold" '
+            f'fill="#F5F3FF" text-anchor="middle" opacity="0">{letter}'
+            f'<animateMotion dur="{CYCLE}s" repeatCount="indefinite" '
+            f'keyPoints="{motion_key_points}" keyTimes="{motion_key_times}" '
+            f'calcMode="linear" path="{path_d}"/>'
+            f'<animate attributeName="opacity" dur="{CYCLE}s" repeatCount="indefinite" '
+            f'keyTimes="{opacity_key_times}" values="{opacity_values}"/>'
+            f"</text>"
+        )
+
     svg_parts.append(
         f'<text x="20" y="24" font-family="monospace" font-size="13" fill="#A78BFA">'
         f"forward_pass() // training in progress</text>"
