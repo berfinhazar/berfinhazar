@@ -1,16 +1,10 @@
-"""
-Animasyonlu bir "neural network forward-pass" SVG banner'ı üretir.
-Katmanlar arasında sinyal akışını simüle eder (animateMotion ile).
-Harici kütüphane gerektirmez, saf SVG + SMIL animasyonu üretir.
-"""
-
 import random
 
 WIDTH = 900
-HEIGHT = 220
+HEIGHT = 240
 LAYERS = [4, 6, 6, 3]  # input, hidden, hidden, output
 NODE_R = 10
-COLORS = ["#0EA5E9", "#22D3EE", "#2DD4BF", "#34D399", "#10B981"]  # mavi -> yeşil tonları
+COLORS = ["#0EA5E9", "#22D3EE", "#2DD4BF", "#34D399", "#10B981"]  
 
 random.seed(7)  # her çalışmada aynı düzen, sadece animasyon zamanlaması değişsin
 
@@ -22,11 +16,11 @@ def layer_x_positions(n_layers, width, margin=80):
     return [margin + i * step for i in range(n_layers)]
 
 
-def node_y_positions(n_nodes, height, margin=30):
+def node_y_positions(n_nodes, height, margin_top=55, margin_bottom=25):
     if n_nodes == 1:
-        return [height / 2]
-    step = (height - 2 * margin) / (n_nodes - 1)
-    return [margin + i * step for i in range(n_nodes)]
+        return [(margin_top + height - margin_bottom) / 2]
+    step = (height - margin_top - margin_bottom) / (n_nodes - 1)
+    return [margin_top + i * step for i in range(n_nodes)]
 
 
 def build_svg():
@@ -92,7 +86,7 @@ def build_svg():
 
     # başlık yazısı
     svg_parts.append(
-        f'<text x="20" y="24" font-family="monospace" font-size="13" fill="#5EEAD4">'
+        f'<text x="20" y="16" font-family="monospace" font-size="13" fill="#5EEAD4">'
         f"forward_pass() // training in progress</text>"
     )
 
