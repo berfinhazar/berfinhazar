@@ -1,3 +1,9 @@
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/berfin-hazar-8355502a6?utm_source=share_via&utm_content=profile&utm_medium=member_ios)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:berfinhazar05@gmail.com)
+
+</div>
 
 # Merhaba, ben Berfin 👋
 
