@@ -35,9 +35,5 @@ Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Ya
 ![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 
-## 📊 GitHub İstatistikleri
-
-![Berfin's GitHub stats](assets/stats.svg)
-![Top Langs](assets/top-langs.svg)
 
 
