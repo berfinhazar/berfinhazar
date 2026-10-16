@@ -9,25 +9,25 @@
 
 Balıkesir Üniversitesi Bilgisayar Mühendisliği 4. sınıf öğrencisiyim. Yapay zeka ve makine öğrenmesine alanlarına ilgi duyuyorum, çalışmalarımı bu doğrultuda gerçekleştiriyorum.
 
-- 🤖 Yapay zeka, makine öğrenmesi ve özellikle derin öğrenme üzerine çalışıyorum. Son dönemde diffusion modelleri ve görüntü işleme üzerine yoğunlaşıyorum.
-- 💻 Python başta olmak üzere farklı programlama dilleri ve teknolojilerle projeler geliştiriyor, öğrendiklerimi uygulayarak ilerliyorum.
-- 📚 Akademik çalışmaların yanında stajlar ve farklı projelerle gerçek dünya deneyimi kazanmaya çalışıyorum.
-- 📫 Bana ulaşmak isterseniz profildeki iletişim bilgilerinden yazabilirsiniz.
+-  Yapay zeka, makine öğrenmesi ve özellikle derin öğrenme üzerine çalışıyorum. Son dönemde diffusion modelleri ve görüntü işleme üzerine yoğunlaşıyorum.
+-  Python başta olmak üzere farklı programlama dilleri ve teknolojilerle projeler geliştiriyor, öğrendiklerimi uygulayarak ilerliyorum.
+-  Akademik çalışmaların yanında stajlar ve farklı projelerle gerçek dünya deneyimi kazanmaya çalışıyorum.
+-  Bana ulaşmak isterseniz profildeki iletişim bilgilerinden yazabilirsiniz.
 
 ![neural network banner](https://raw.githubusercontent.com/berfinhazar/berfinhazar/refs/heads/main/assets/neural-network.svg)
 
-## 🛠️ Diller & Teknolojiler
+##  Diller & Teknolojiler
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 
-## 🤖 ML / DL Kütüphaneleri
+##  ML / DL Kütüphaneleri
 
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 
-## 🧰 Araçlar
+##  Araçlar
 
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
